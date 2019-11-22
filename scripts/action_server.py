@@ -34,7 +34,39 @@ class RobotActionsServer:
         rospy.Service('is_terminal_state', IsTerminalState, self.is_terminal_state_handler)
         rospy.Service('get_current_state', GetInitialState, self.get_current_state)
         rospy.Service('get_unplaced_books', UnplacedBooks, self.get_unplaced_books)
+        rospy.Service('update_currentstate_objectdict', UpdatedTuple, self.update_currentstate_objectdict)
         print "Action Server Initiated"
+
+
+    def update_currentstate_objectdict(self, req):
+        print "Entered"
+        print "req = ", req
+        print "type(req): ", type(req)
+        
+
+        if type(req) is tuple:
+            newbook_tup = req
+        else:
+            newbook_tup = json.loads(req.book_dict)
+
+        print "newbook_tup", type(newbook_tup)
+
+        book_name = newbook_tup[0].encode("utf-8")
+        print "book_name: ",book_name,
+        book_spec = newbook_tup[1]
+        print "typeof string: ", type(book_name)
+        self.object_dict["books"][book_name] = book_spec
+        self.current_state[book_name] = {
+                            'x': float(self.object_dict["books"][book_name]["loc"][0]), 
+                            'y': float(self.object_dict["books"][book_name]["loc"][1]), 
+                            'placed': False
+                        }
+        print "updated"
+        print "updated dict= ", self.object_dict
+        print "current_state= ", self.current_state
+
+        return "success"
+
 
 
     def generate_init_state(self):

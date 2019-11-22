@@ -71,6 +71,8 @@ find_package(catkin REQUIRED COMPONENTS
    GetPossibleStates.srv
    GetReward.srv
    UnplacedBooks.srv
+   SpawnMsg.srv
+   UpdatedTuple.srv
  )
 
 ## Generate actions in the 'action' folder
