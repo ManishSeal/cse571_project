@@ -24,18 +24,18 @@ robot_action_server = None
 
 
 def check_is_edge(req):
-	"""
-	This function checks if two points are connected via edge or not.
-	"""
-	global mazeInfo
-	edge = (req.x1,req.y1,req.x2,req.y2)
-	for edge_point in edge:
-		if edge_point < mazeInfo.grid_start or edge_point > mazeInfo.grid_dimension * 0.5:
-			return 0
-	if edge in mazeInfo.blocked_edges or (edge[2],edge[3],edge[0],edge[1]) in mazeInfo.blocked_edges:
-		return 0
-	else:
-		return 1
+    """
+    This function checks if two points are connected via edge or not.
+    """
+    global mazeInfo
+    edge = (req.x1,req.y1,req.x2,req.y2)
+    for edge_point in edge:
+        if edge_point < mazeInfo.grid_start or edge_point > mazeInfo.grid_dimension * 0.5:
+            return 0
+    if edge in mazeInfo.blocked_edges or (edge[2],edge[3],edge[0],edge[1]) in mazeInfo.blocked_edges:
+        return 0
+    else:
+        return 1
 
 def handle_get_successor(req):
 	"""
@@ -142,7 +142,10 @@ if __name__ == "__main__":
 	mazeInfo = Maze(grid_size, 0.5)
 	books = mazeInfo.generate_blocked_edges(book_count_list, seed,  number_of_trollies, root_path)
 	mazeInfoCopy = copy.deepcopy(mazeInfo)
-	print "blocked_edges: ", mazeInfo.blocked_edges
+	print "blocked_edges: "
+	for i in mazeInfo.blocked_edges:
+	    print i
+	print "books", books
 	rospy.init_node('server')
 	robot_action_server = RobotActionsServer(books, root_path, args.action_seed)
 	server()

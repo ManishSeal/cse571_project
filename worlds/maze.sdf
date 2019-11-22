@@ -99,76 +99,166 @@
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
 <model name='wall1'>
-<pose frame=''>-1 1.5 0 0 -0 -1.55905</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>-1 3.0 0 0 -0 -1.55905</pose>
+<scale>1.06666666667 1 0.03</scale>
 <link name='link'>
-<pose frame=''>-1 1.5 0.42 -0 0 -1.55905</pose>
+<pose frame=''>-1 3.0 0.42 -0 0 -1.55905</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall2'>
-<pose frame=''>1.5 4.0 0 0 -0 0</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>3.0 7.0 0 0 -0 0</pose>
+<scale>1.06666666667 1 0.03</scale>
 <link name='link'>
-<pose frame=''>1.5 4.0 0.42 -0 0 0</pose>
+<pose frame=''>3.0 7.0 0.42 -0 0 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall3'>
-<pose frame=''>4.0 1.5 0 0 -0 -1.55905</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>7.0 3.0 0 0 -0 -1.55905</pose>
+<scale>1.06666666667 1 0.03</scale>
 <link name='link'>
-<pose frame=''>4.0 1.5 0.42 -0 0 -1.55905</pose>
+<pose frame=''>7.0 3.0 0.42 -0 0 -1.55905</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='wall4'>
-<pose frame=''>1.5 -1 0 0 -0 0</pose>
-<scale>0.666666666667 1 0.03</scale>
+<pose frame=''>3.0 -1 0 0 -0 0</pose>
+<scale>1.06666666667 1 0.03</scale>
 <link name='link'>
-<pose frame=''>1.5 -1 0.42 -0 0 0</pose>
+<pose frame=''>3.0 -1 0.42 -0 0 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 0 0 -0 0</acceleration>
 <wrench>0 0 0 0 -0 0</wrench>
 </link>
 </model>
 <model name='book_1'>
-<pose frame=''>0.25 2.5 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>2.75 5.5 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.35 0.35 1</scale>
 <link name='cover'>
-<pose frame=''>0.25 2.499892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>2.75 5.499892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.25 2.500608 0.015 0 1e-06 0</pose>
+<pose frame=''>2.75 5.500608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_2'>
-<pose frame=''>0.5 0.25 -0.000405 -1e-06 1e-06 0</pose>
-<scale>0.6 0.6 1</scale>
+<pose frame=''>1.0 1.75 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.35 0.35 1</scale>
 <link name='cover'>
-<pose frame=''>0.5 0.249892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 1.749892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>0.5 0.250608 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 1.750608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
-</model><model name='trolly_1'><pose frame=''>2 1 0 0 -0 0</pose><scale>0.4 0.4 0.3</scale><link name='link_20'><pose frame=''>2 1 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model><model name='trolly_2'><pose frame=''>2 3 0 0 -0 0</pose><scale>0.3 0.3 0.3</scale><link name='link_20'><pose frame=''>2 3 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model></state><model name='trolly_1'>/n<link name='link'>
+</model><model name='book_3'>
+<pose frame=''>2.25 5.0 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.6 0.6 1</scale>
+<link name='cover'>
+<pose frame=''>2.25 4.999892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>2.25 5.000608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='book_4'>
+<pose frame=''>1.75 3.0 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.6 0.6 1</scale>
+<link name='cover'>
+<pose frame=''>1.75 2.999892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>1.75 3.000608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='book_5'>
+<pose frame=''>1.0 2.75 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.35 0.35 1</scale>
+<link name='cover'>
+<pose frame=''>1.0 2.749892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>1.0 2.750608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='book_6'>
+<pose frame=''>1.75 6.0 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.35 0.35 1</scale>
+<link name='cover'>
+<pose frame=''>1.75 5.999892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>1.75 6.000608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='book_7'>
+<pose frame=''>2.25 1.0 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.6 0.6 1</scale>
+<link name='cover'>
+<pose frame=''>2.25 0.999892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>2.25 1.000608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='book_8'>
+<pose frame=''>1.75 2.0 -0.000405 -1e-06 1e-06 0</pose>
+<scale>0.6 0.6 1</scale>
+<link name='cover'>
+<pose frame=''>1.75 1.999892 0.015 -1e-06 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
+<wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
+</link>
+<link name='page'>
+<pose frame=''>1.75 2.000608 0.015 0 1e-06 0</pose>
+<velocity>0 0 0 0 -0 0</velocity>
+<acceleration>0 0 -9.8 0 -0 0</acceleration>
+<wrench>0 0 -9.8 0 -0 0</wrench>
+</link>
+</model><model name='trolly_1'><pose frame=''>4 1 0 0 -0 0</pose><scale>0.4 0.4 0.3</scale><link name='link_20'><pose frame=''>4 1 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model><model name='trolly_2'><pose frame=''>4 3 0 0 -0 0</pose><scale>0.3 0.3 0.3</scale><link name='link_20'><pose frame=''>4 3 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model><model name='trolly_3'><pose frame=''>4 5 0 0 -0 0</pose><scale>0.4 0.4 0.3</scale><link name='link_20'><pose frame=''>4 5 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model><model name='trolly_4'><pose frame=''>6 1 0 0 -0 0</pose><scale>0.3 0.3 0.3</scale><link name='link_20'><pose frame=''>6 1 0 0 -0 0</pose><velocity>0 0 0 0 -0 0</velocity><acceleration>0 0 0 0 -0 0</acceleration><wrench>0 0 0 0 -0 0</wrench></link></model></state><model name='trolly_1'>/n<link name='link'>
 <pose frame=''>0 0 0 0 -0 0</pose>
 <inertial>
 <mass>1</mass>
@@ -299,6 +389,208 @@
 <material>
 <ambient>1.0 0.0 0.0 0</ambient>
 <diffuse>1.0 0.0 0.0 0</diffuse>
+<specular>0 0 0 1</specular>
+<emissive>0 0 0 1</emissive>
+<script>
+<name>ModelPreview_1::link::visual_MATERIAL_</name>
+<uri>__default__</uri>
+</script>
+<shader type='vertex'>
+<normal_map>__default__</normal_map>
+</shader>
+</material>
+</visual>
+<collision name='collision_0'>
+<laser_retro>0</laser_retro>
+<max_contacts>10</max_contacts>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh>
+<uri>model://bookcart/meshes/bookcart.dae</uri>
+<scale>0.3 0.3 1</scale>
+</mesh>
+</geometry>
+<surface>
+<friction>
+<ode>
+<mu>1</mu>
+<mu2>1</mu2>
+<fdir1>0 0 0</fdir1>
+<slip1>0</slip1>
+<slip2>0</slip2>
+</ode>
+<torsional>
+<coefficient>1</coefficient>
+<patch_radius>0</patch_radius>
+<surface_radius>0</surface_radius>
+<use_patch_radius>1</use_patch_radius>
+<ode>
+<slip>0</slip>
+</ode>
+</torsional>
+</friction>
+<bounce>
+<restitution_coefficient>0</restitution_coefficient>
+<threshold>1e+06</threshold>
+</bounce>
+<contact>
+<collide_without_contact>0</collide_without_contact>
+<collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+<collide_bitmask>1</collide_bitmask>
+<ode>
+<soft_cfm>0</soft_cfm>
+<soft_erp>0.2</soft_erp>
+<kp>1e+13</kp>
+<kd>1</kd>
+<max_vel>0.01</max_vel>
+<min_depth>0</min_depth>
+</ode>
+<bullet>
+<split_impulse>1</split_impulse>
+<split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+<soft_cfm>0</soft_cfm>
+<soft_erp>0.2</soft_erp>
+<kp>1e+13</kp>
+<kd>1</kd>
+</bullet>
+</contact>
+</surface>
+</collision>
+</link>
+<static>1</static>
+<allow_auto_disable>1</allow_auto_disable>
+<pose frame=''>1.06777 -0.068202 0 0 -0 0</pose>
+</model><model name='trolly_3'>/n<link name='link'>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<inertial>
+<mass>1</mass>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<inertia>
+<ixx>1</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>1</iyy>
+<iyz>0</iyz>
+<izz>1</izz>
+</inertia>
+</inertial>
+<self_collide>0</self_collide>
+<kinematic>0</kinematic>
+<gravity>1</gravity>
+<visual name='visual'>
+<geometry>
+<mesh>
+<uri>model://bookcart/meshes/bookcart.dae</uri>
+<scale>0.5 0.5 1</scale>
+</mesh>
+</geometry>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<cast_shadows>1</cast_shadows>
+<transparency>0</transparency>
+<material>
+<ambient>0.0 1.0 0.0 0</ambient>
+<diffuse>0.0 1.0 0.0 0</diffuse>
+<specular>0 0 0 1</specular>
+<emissive>0 0 0 1</emissive>
+<script>
+<name>ModelPreview_1::link::visual_MATERIAL_</name>
+<uri>__default__</uri>
+</script>
+<shader type='vertex'>
+<normal_map>__default__</normal_map>
+</shader>
+</material>
+</visual>
+<collision name='collision_0'>
+<laser_retro>0</laser_retro>
+<max_contacts>10</max_contacts>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<geometry>
+<mesh>
+<uri>model://bookcart/meshes/bookcart.dae</uri>
+<scale>0.5 0.5 1</scale>
+</mesh>
+</geometry>
+<surface>
+<friction>
+<ode>
+<mu>1</mu>
+<mu2>1</mu2>
+<fdir1>0 0 0</fdir1>
+<slip1>0</slip1>
+<slip2>0</slip2>
+</ode>
+<torsional>
+<coefficient>1</coefficient>
+<patch_radius>0</patch_radius>
+<surface_radius>0</surface_radius>
+<use_patch_radius>1</use_patch_radius>
+<ode>
+<slip>0</slip>
+</ode>
+</torsional>
+</friction>
+<bounce>
+<restitution_coefficient>0</restitution_coefficient>
+<threshold>1e+06</threshold>
+</bounce>
+<contact>
+<collide_without_contact>0</collide_without_contact>
+<collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+<collide_bitmask>1</collide_bitmask>
+<ode>
+<soft_cfm>0</soft_cfm>
+<soft_erp>0.2</soft_erp>
+<kp>1e+13</kp>
+<kd>1</kd>
+<max_vel>0.01</max_vel>
+<min_depth>0</min_depth>
+</ode>
+<bullet>
+<split_impulse>1</split_impulse>
+<split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+<soft_cfm>0</soft_cfm>
+<soft_erp>0.2</soft_erp>
+<kp>1e+13</kp>
+<kd>1</kd>
+</bullet>
+</contact>
+</surface>
+</collision>
+</link>
+<static>1</static>
+<allow_auto_disable>1</allow_auto_disable>
+<pose frame=''>1.06777 -0.068202 0 0 -0 0</pose>
+</model><model name='trolly_4'>/n<link name='link'>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<inertial>
+<mass>1</mass>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<inertia>
+<ixx>1</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>1</iyy>
+<iyz>0</iyz>
+<izz>1</izz>
+</inertia>
+</inertial>
+<self_collide>0</self_collide>
+<kinematic>0</kinematic>
+<gravity>1</gravity>
+<visual name='visual'>
+<geometry>
+<mesh>
+<uri>model://bookcart/meshes/bookcart.dae</uri>
+<scale>0.3 0.3 1</scale>
+</mesh>
+</geometry>
+<pose frame=''>0 0 0 0 -0 0</pose>
+<cast_shadows>1</cast_shadows>
+<transparency>0</transparency>
+<material>
+<ambient>0.0 1.0 0.0 0</ambient>
+<diffuse>0.0 1.0 0.0 0</diffuse>
 <specular>0 0 0 1</specular>
 <emissive>0 0 0 1</emissive>
 <script>
@@ -550,14 +842,28 @@
 </link>
 <pose frame=''>-0.779308 4.01849 0 0 -0 0</pose>
 </model>
-<model name='book_1'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_1.material</uri>/n<uri>model://book_1/materials/textures/cover1.jpg</uri>/n<name>book_1</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
+<model name='book_1'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_1.material</uri>/n<uri>model://book_1/materials/textures/cover1.jpg</uri>/n<name>book_1</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='book_2'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_1.material</uri>/n<uri>model://book_1/materials/textures/cover1.jpg</uri>/n<name>book_1</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
 <camera name='user_camera'>
 <pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
 <view_controller>orbit</view_controller>
 <projection_type>perspective</projection_type>
 </camera>
 </gui>
-<model name='book_2'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_2.material</uri>/n<uri>model://book_1/materials/textures/cover2.jpg</uri>/n<name>book_2</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
+<model name='book_3'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_2.material</uri>/n<uri>model://book_1/materials/textures/cover2.jpg</uri>/n<name>book_2</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='book_4'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_2.material</uri>/n<uri>model://book_1/materials/textures/cover2.jpg</uri>/n<name>book_2</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
+<camera name='user_camera'>
+<pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
+<view_controller>orbit</view_controller>
+<projection_type>perspective</projection_type>
+</camera>
+</gui>
+<model name='book_5'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_3.material</uri>/n<uri>model://book_1/materials/textures/cover3.jpg</uri>/n<name>book_3</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='book_6'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_3.material</uri>/n<uri>model://book_1/materials/textures/cover3.jpg</uri>/n<name>book_3</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
+<camera name='user_camera'>
+<pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
+<view_controller>orbit</view_controller>
+<projection_type>perspective</projection_type>
+</camera>
+</gui>
+<model name='book_7'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_4.material</uri>/n<uri>model://book_1/materials/textures/cover4.jpg</uri>/n<name>book_4</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><model name='book_8'>/n<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n<uri>model://book_1/materials/scripts/book_4.material</uri>/n<uri>model://book_1/materials/textures/cover4.jpg</uri>/n<name>book_4</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model><gui fullscreen='0'>
 <camera name='user_camera'>
 <pose frame=''>5 -5 2 0 0.275643 2.35619</pose>
 <view_controller>orbit</view_controller>

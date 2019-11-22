@@ -33,6 +33,7 @@ class RobotActionsServer:
         rospy.Service('get_reward', GetReward, self.get_reward)
         rospy.Service('is_terminal_state', IsTerminalState, self.is_terminal_state_handler)
         rospy.Service('get_current_state', GetInitialState, self.get_current_state)
+        rospy.Service('get_unplaced_books', UnplacedBooks, self.get_unplaced_books)
         print "Action Server Initiated"
 
 
@@ -52,6 +53,20 @@ class RobotActionsServer:
                         }
         state['basket'] = 'empty'
         return state
+
+    def get_unplaced_books(self, req):
+        # This function assumes that the basket is empty when this method is called
+        result = []
+        for k, v in self.current_state.items():
+            if 'book' in k.split('_'):
+                if v['placed'] == False:
+                    book_name = k
+                    book_dict = dict(self.object_dict["books"][book_name])
+                    book_dict['name'] = book_name
+                    result.append(book_dict) 
+        result = json.dumps(result)
+        
+        return result
 
 
     def get_current_state(self, req):
