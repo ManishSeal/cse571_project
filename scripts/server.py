@@ -37,6 +37,7 @@ def book_dict_generator(books, bookname,location, coord1, cord2):
 		books[bookname]["load_loc"] = []
 		books[bookname]["load_loc"].append(coord1)
 		books[bookname]["load_loc"].append(cord2)
+		books[bookname]["placed"] = False
 
 
 def check_is_edge(req):
@@ -152,12 +153,13 @@ def spawn(req):
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
-			books[bookname] = {}
+			books["books"][bookname] = {}
 			book_dict_generator(books, bookname,(x+myscale/2, y), (x, y), (x+myscale, y))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
-			update_object_prox(json.dumps( [bookname, books[bookname]] ))
+			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
 			#robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
+			failure = False
 			return "Success"
 		
 				
@@ -167,12 +169,13 @@ def spawn(req):
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
-			books[bookname] = {}
+			books["books"][bookname] = {}
 			book_dict_generator(books, bookname,(x, y+myscale/2), (x, y), (x, y+myscale))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
-			update_object_prox(json.dumps( [bookname, books[bookname]] ))
+			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
 			#robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
+			failure = False
 			return "Success"
 
 		else:

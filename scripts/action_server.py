@@ -39,9 +39,9 @@ class RobotActionsServer:
 
 
     def update_currentstate_objectdict(self, req):
-        print "Entered"
-        print "req = ", req
-        print "type(req): ", type(req)
+        #print "Entered"
+        #print "req = ", req
+        #print "type(req): ", type(req)
         
 
         if type(req) is tuple:
@@ -49,21 +49,21 @@ class RobotActionsServer:
         else:
             newbook_tup = json.loads(req.book_dict)
 
-        print "newbook_tup", type(newbook_tup)
+        #print "newbook_tup", type(newbook_tup)
 
         book_name = newbook_tup[0].encode("utf-8")
-        print "book_name: ",book_name,
+        #print "book_name: ",book_name,
         book_spec = newbook_tup[1]
-        print "typeof string: ", type(book_name)
+        #print "typeof string: ", type(book_name)
         self.object_dict["books"][book_name] = book_spec
         self.current_state[book_name] = {
                             'x': float(self.object_dict["books"][book_name]["loc"][0]), 
                             'y': float(self.object_dict["books"][book_name]["loc"][1]), 
                             'placed': False
                         }
-        print "updated"
-        print "updated dict= ", self.object_dict
-        print "current_state= ", self.current_state
+        # print "updated"
+        # print "updated dict= ", self.object_dict
+        # print "current_state= ", self.current_state
 
         return "success"
 
@@ -76,7 +76,6 @@ class RobotActionsServer:
             state[book] = {
                             'x': float(self.object_dict["books"][book]["loc"][0]), 
                             'y': float(self.object_dict["books"][book]["loc"][1]), 
-                            'placed': False
                         }
         for bin_name in self.object_dict["bins"]:
             state[bin_name] = {
