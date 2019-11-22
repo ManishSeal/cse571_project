@@ -37,6 +37,63 @@ def check_is_edge(req):
 	else:
 		return 1
 
+def handle_get_successor(req):
+	"""
+        This function returns successor of a given state.
+
+        parameters:	x_cord - current x-cordinate of turtlebot           output:   x_cord - new x-cordinate of turtlebot
+                    y_cord - current y-cordinate of turtlebot					  y_cord - new y-cordinate of turtlebot
+                    direction - current orientation								  direction - new orientation
+                    action - current action										  g_cost - Manhatan distance from initial state to new state
+                                                                                    hurestic_value - Manhatan distance from goal state to new state
+    """
+	global mazeInfo
+	directionList = ["NORTH", "EAST","SOUTH","WEST"]
+	x_cord, y_cord, direction, action = req.x, req.y, req.direction, req.action
+
+	#Checking requested action and making changes in states
+	if action == 'TurnCW':
+		index = directionList.index(req.direction)
+		direction = directionList[(index+1)%4]
+		g_cost = 2
+
+	elif action == 'TurnCCW':
+		index = directionList.index(req.direction)
+		direction = directionList[(index-1)%4]
+		g_cost = 2
+
+	elif action == 'MoveF':
+		if direction == "NORTH":
+			y_cord += 0.5
+		elif direction == "EAST":
+			x_cord += 0.5
+		elif direction == "SOUTH":
+			y_cord -= 0.5
+		elif direction == "WEST":
+			x_cord -= 0.5
+		g_cost = 1
+
+	elif action == 'MoveB':
+		if direction == "NORTH":
+			y_cord -= 0.5
+		elif direction == "EAST":
+			x_cord -= 0.5
+		elif direction == "SOUTH":
+			y_cord += 0.5
+		elif direction == "WEST":
+			x_cord += 0.5
+		g_cost = 3
+
+	if req.x <= x_cord and req.y <= y_cord:
+		isValidEdge = check_is_edge((req.x, req.y, x_cord, y_cord), "changedValuesLater")
+	else:
+		isValidEdge = check_is_edge((x_cord, y_cord, req.x, req.y), "changedValuesBefore")
+
+	if not isValidEdge:
+		return GetSuccessorResponse(-1, -1, direction, -1)
+
+	return GetSuccessorResponse(x_cord, y_cord, direction, g_cost)
+
 
 def handle_reset_world(req):
 	global mazeInfo
