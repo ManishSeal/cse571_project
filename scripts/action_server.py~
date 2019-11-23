@@ -253,7 +253,7 @@ class RobotActionsServer:
         for param in self.action_config[chosen_action]['params']:
             calling_params.append("'" + params[param] + "'")
         calling_params.append("'" + json.dumps(self.current_state) + "'")
-        calling_params.append('False')
+        calling_params.append('True')
         calling_function = "self.{}({})".format(self.action_config[chosen_action]['function'], ','.join(calling_params))
         success, next_state = eval(calling_function)
         

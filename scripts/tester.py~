@@ -120,8 +120,8 @@ robot = Robot()
 current_state = helper.get_current_state()
 
 print "current_state_robot: ", current_state['robot']
-#success, next_state = helper.execute_action("moveF", {})
-#print "next_state: ", next_state['robot']
+success, next_state = helper.execute_action("moveF", {})
+print "next_state: ", next_state['robot']
 
 robot = Robot()
 init_state = State(current_state['robot']['x'], current_state['robot']['y'], current_state['robot']['orientation'])
