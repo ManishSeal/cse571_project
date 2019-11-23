@@ -16,11 +16,11 @@ class Maze:
 				"Design Computing","Relational Database Systems","Algorithms and Data Structures","Programming in the Large",
 				"Introduction to Computer Systems"]
 
-		self.color_list = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0), (1.0, 0.1725490196078432, 0.5562), (1.0, 0.9254901960784314, 0.8980392156862745), 
-				(0.6340, 0.9490196078431372, 0.6780392156862745), (1.0, 0.5764705882352941, 0.3980392156862745), (1.0, 1.0, 0.8980392156862745), 
-				(0.9764705882352941, 1.0, 0.8980392156862745), (0.9490196078431372, 1.0, 0.8980392156862745), (0.9254901960784314, 1.0, 0.8980392156862745), 
-				(0.8980392156862745, 1.0, 0.8980392156862745), (0.8980392156862745, 1.0, 0.9254901960784314), (0.8980392156862745, 0.9490196078431372, 1.0), 
-				(0.8980392156862745, 0.9254901960784314, 1.0), (0.8980392156862745, 0.8980392156862745, 1.0), (1.0, 0.8980392156862745, 0.8980392156862745), 
+		self.color_list = [(1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0), (1.0, 0.1725490196078432, 0.5562), (1.0, 0.9254901960784314, 0.8980392156862745),
+				(0.6340, 0.9490196078431372, 0.6780392156862745), (1.0, 0.5764705882352941, 0.3980392156862745), (1.0, 1.0, 0.8980392156862745),
+				(0.9764705882352941, 1.0, 0.8980392156862745), (0.9490196078431372, 1.0, 0.8980392156862745), (0.9254901960784314, 1.0, 0.8980392156862745),
+				(0.8980392156862745, 1.0, 0.8980392156862745), (0.8980392156862745, 1.0, 0.9254901960784314), (0.8980392156862745, 0.9490196078431372, 1.0),
+				(0.8980392156862745, 0.9254901960784314, 1.0), (0.8980392156862745, 0.8980392156862745, 1.0), (1.0, 0.8980392156862745, 0.8980392156862745),
 				(1.0, 0.8980392156862745, 1.0), (1.0, 0.9019607843137255, 0.9490196078431372), (1.0, 0.8980392156862745, 0.9254901960784314)]
 		self.grid_dimension = grid_dimension
 		self.grid_start = 0
@@ -165,25 +165,32 @@ class Maze:
 			coords = []
 			while(count <= n_obstacles):
 				books["book_"+str(bookCounter)] = {}
-				x = self.myscale*np.random.randint(0, (self.grid_dimension+1)//2)
-				y = self.myscale*np.random.randint(0, (self.grid_dimension+1))
+				x = (self.myscale*2)*np.random.randint(0, (self.grid_dimension+1)//2)
+				y = (self.myscale*2)*np.random.randint(0, (self.grid_dimension+1)/2)
 				flag = np.random.randint(0, 2)
+
 				if(flag == 0 and ((x+self.myscale) <= self.grid_dimension*self.myscale//2) and ((x, y, x+self.myscale, y) not in self.blocked_edges)):
 					self.blocked_edges.add((x, y, x+self.myscale, y))
-					# offset = np.random.uniform(0, 0.05*self.myscale)
-					offset = 0
-					coords.append((x+self.myscale/2+offset, y))
-					self.book_dict_generator(books, bookCounter, size, (x+self.myscale/2+offset, y), (x, y), (x+self.myscale, y),  subject_count)
-					self.add_book(f_out, x+self.myscale/2+offset, y, book_size_scale, bookCounter)
-					count += 1
-				
-				elif(flag == 1 and ((y+self.myscale) <= self.grid_dimension*self.myscale//2) and ((x, y, x, y+self.myscale) not in self.blocked_edges)):
 					self.blocked_edges.add((x, y, x, y+self.myscale))
+					self.blocked_edges.add((x, y, x-self.myscale, y))
+					self.blocked_edges.add((x, y, x, y-self.myscale))
 					# offset = np.random.uniform(0, 0.05*self.myscale)
 					offset = 0
-					coords.append((x, y+self.myscale/2-offset))
-					self.book_dict_generator(books, bookCounter, size, (x, y+self.myscale/2-offset), (x, y), (x, y+self.myscale),  subject_count)
-					self.add_book(f_out, x, y+self.myscale/2-offset, book_size_scale, bookCounter)
+					coords.append((x+self.myscale*2+offset, y))
+					self.book_dict_generator(books, bookCounter, size, (x+self.myscale*2+offset, y), (x, y), (x+self.myscale, y),  subject_count)
+					self.add_book(f_out, x+self.myscale*2+offset, y, book_size_scale, bookCounter)
+					count += 1
+
+				elif(flag == 1 and ((y+self.myscale) <= self.grid_dimension*self.myscale//2) and ((x, y, x, y+self.myscale) not in self.blocked_edges)):
+					self.blocked_edges.add((x, y, x+self.myscale, y))
+					self.blocked_edges.add((x, y, x, y+self.myscale))
+					self.blocked_edges.add((x, y, x-self.myscale, y))
+					self.blocked_edges.add((x, y, x, y-self.myscale))
+					# offset = np.random.uniform(0, 0.05*self.myscale)
+					offset = 0
+					coords.append((x, y+self.myscale*2-offset))
+					self.book_dict_generator(books, bookCounter, size, (x, y+self.myscale*2-offset), (x, y), (x, y+self.myscale),  subject_count)
+					self.add_book(f_out, x, y+self.myscale*2-offset, book_size_scale, bookCounter)
 					count += 1
 				else:
 					bookCounter -= 1
@@ -200,7 +207,7 @@ class Maze:
 		trollies = {}
 		while(trollies_count <= ntrollies):
 
-			
+
 			scale = 0.4
 			size = "large"
 			if trollies_count%2 ==0:
@@ -228,17 +235,17 @@ class Maze:
 				y = 1
 			else:
 				y += 2
-		
+
 		f_out.write('</state>')
 
 		self.add_trolly_description(f_out, trolliesCoords)
 		self.add_walls_description(f_out)
 		#color list will decide color of the book. R, G, B, X(need to check)
-		
+
 		for book_index, book_count in enumerate(list_of_number_of_books):
 			bookCounter = book_index * book_count
 			self.add_book_description(f_out, list_of_list_of_coords[book_index], book_index+1, bookCounter)
-			
+
 		f_out.write('</world>\n</sdf>')
 		f_out.close()
 
@@ -250,7 +257,7 @@ class Maze:
 	 	return object_dict
 
 
-if __name__ == "__main__":	
+if __name__ == "__main__":
 	subject_count = 6
 	book_sizes = 2
 	book_count_of_each_size = 5
