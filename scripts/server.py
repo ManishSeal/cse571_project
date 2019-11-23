@@ -15,6 +15,7 @@ import os
 import numpy as np
 from gazebo_msgs.srv import SpawnModel
 from geometry_msgs.msg import Pose
+import pdb
 
 root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 books = None
@@ -135,6 +136,7 @@ def remove_blocked_edge(req):
 
 def spawn(req):
 	global robot_action_server
+	global mazeInfo
 	rospy.wait_for_service("gazebo/spawn_sdf_model")
 	rospy.wait_for_service("update_currentstate_objectdict")
 	initial_pose = Pose()
@@ -147,19 +149,21 @@ def spawn(req):
 	spawn_model_prox = rospy.ServiceProxy('gazebo/spawn_sdf_model', SpawnModel)
 	update_object_prox = rospy.ServiceProxy('update_currentstate_objectdict', UpdatedTuple)
 	while failure and ctr < 500:
-		x = (myscale*2)*np.random.randint(0, (mazeInfo.grid_dimension+1)//2)
-		y = (myscale*2)*np.random.randint(0, (mazeInfo.grid_dimension+1)//2)
-		flag = np.random.randint(0, 2)
-		if(flag == 0 and ((x+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)):
-			mazeInfo.blocked_edges.add((x, y, x+myscale, y))
-			mazeInfo.blocked_edges.add((x, y, x, y+myscale))
-			mazeInfo.blocked_edges.add((x, y, x-myscale, y))
-			mazeInfo.blocked_edges.add((x, y, x, y-myscale))
+		x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
+		y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
+		#flag = np.random.randint(0, 2)
+		flag =0
+		#pdb.set_trace()
+		if(flag == 0 and ((x+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges) and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges) and (x-myscale, y, x, y) not in mazeInfo.blocked_edges) and ((x, y-myscale, x, y not in mazeInfo.blocked_edges)):
+			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
+			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
+			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
+			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
 			books["books"][bookname] = {}
-			book_dict_generator(books["books"], bookname,(x+myscale/2, y), (x, y), (x+myscale, y), (x, y-myscale), (x, y+myscale))
+			book_dict_generator(books["books"], bookname,(x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
 			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
@@ -168,16 +172,16 @@ def spawn(req):
 			return "Success"
 
 
-		elif(flag == 1 and ((y+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)):
-			mazeInfo.blocked_edges.add((x, y, x+myscale, y))
-			mazeInfo.blocked_edges.add((x, y, x, y+myscale))
-			mazeInfo.blocked_edges.add((x, y, x-myscale, y))
-			mazeInfo.blocked_edges.add((x, y, x, y-myscale))
+		elif(flag == 1 and ((y+myscale) <= mazeInfo.grid_dimension*myscale//2) and (((x, y, x+myscale, y) and (x, y, x, y+myscale) and (x-myscale, y, x, y) and (x, y-myscale, x, y)) not in mazeInfo.blocked_edges)):
+			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
+			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
+			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
+			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
 			books["books"][bookname] = {}
-			book_dict_generator(books["books"], bookname,(x, y+myscale/2), (x, y), (x, y+myscale), (x-myscale, y), (x+myscale, y))
+			book_dict_generator(books["books"], bookname,(x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
 			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
