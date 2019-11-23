@@ -111,7 +111,7 @@ class Maze:
 		f_out.write("</link>")
 		f_out.write("</model>")
 
-	def book_dict_generator(self,books, bookCounter, size, location, coord1, cord2, book_index):
+	def book_dict_generator(self,books, bookCounter, size, location, coord1, coord2, coord3, coord4, book_index):
 		# print(bookCounter)
 		books["book_"+str(bookCounter)]["size"] = size
 		# Total book count of a subject including small and large
@@ -119,7 +119,9 @@ class Maze:
 		books["book_"+str(bookCounter)]["loc"]= location
 		books["book_"+str(bookCounter)]["load_loc"] = []
 		books["book_"+str(bookCounter)]["load_loc"].append(coord1)
-		books["book_"+str(bookCounter)]["load_loc"].append(cord2)
+		books["book_"+str(bookCounter)]["load_loc"].append(coord2)
+		books["book_"+str(bookCounter)]["load_loc"].append(coord3)
+		books["book_"+str(bookCounter)]["load_loc"].append(coord4)
 
 	def trolly_dict_generator(self,books, trollies_counter, size, access_loc_list, location, subject_count_index):
 		books["trolly_"+str(trollies_counter)]["size"] = size
@@ -163,33 +165,49 @@ class Maze:
 			n_obstacles = book_count
 			count = 1
 			coords = []
+			print "gridSize: ", self.grid_dimension
 			while(count <= n_obstacles):
 				books["book_"+str(bookCounter)] = {}
-				x = (self.myscale*2)*np.random.randint(0, (self.grid_dimension+1)//2)
-				y = (self.myscale*2)*np.random.randint(0, (self.grid_dimension+1)/2)
-				flag = np.random.randint(0, 2)
+				x = np.random.randint(0, (self.grid_dimension+1)//2)
+				y = np.random.randint(0, (self.grid_dimension+1)//2)
+				#print "x: ", x
+				#print "y: ", y
+				#print "count: ", bookCounter
+				#print "**************"
+				#flag = np.random.randint(0, 2)
+				flag =0
+				x_ = x+self.myscale*2
 
-				if(flag == 0 and ((x+self.myscale) <= self.grid_dimension*self.myscale//2) and ((x, y, x+self.myscale, y) not in self.blocked_edges)):
-					self.blocked_edges.add((x, y, x+self.myscale, y))
-					self.blocked_edges.add((x, y, x, y+self.myscale))
-					self.blocked_edges.add((x, y, x-self.myscale, y))
-					self.blocked_edges.add((x, y, x, y-self.myscale))
+				if(flag == 0 and ((x+self.myscale) <= self.grid_dimension*self.myscale//2)
+					and ((x_, y, x_+self.myscale, y) not in self.blocked_edges)
+					and ((x_, y, x_, y+self.myscale) not in self.blocked_edges)
+					and ((x_-self.myscale, y, x_, y) not in self.blocked_edges)
+					and ((x_, y-self.myscale, x_, y) not in self.blocked_edges)):
+
+					print "Book x_: ", x_
+					print "Book y: ", y
+					#import pdb; pdb.set_trace()
+
+					self.blocked_edges.add((x_, y, x_+self.myscale, y)) # V
+					self.blocked_edges.add((x_, y, x_, y+self.myscale)) # >
+					self.blocked_edges.add((x_-self.myscale, y, x_, y)) # ^
+					self.blocked_edges.add((x_, y-self.myscale, x_, y)) # <
 					# offset = np.random.uniform(0, 0.05*self.myscale)
 					offset = 0
 					coords.append((x+self.myscale*2+offset, y))
-					self.book_dict_generator(books, bookCounter, size, (x+self.myscale*2+offset, y), (x, y), (x+self.myscale, y),  subject_count)
-					self.add_book(f_out, x+self.myscale*2+offset, y, book_size_scale, bookCounter)
+					self.book_dict_generator(books, bookCounter, size, (x_, y), (x_+self.myscale, y), (x_-self.myscale, y), (x_, y+self.myscale), (x_, y-self.myscale), subject_count)
+					self.add_book(f_out, x+self.myscale*2, y, book_size_scale, bookCounter)
 					count += 1
 
-				elif(flag == 1 and ((y+self.myscale) <= self.grid_dimension*self.myscale//2) and ((x, y, x, y+self.myscale) not in self.blocked_edges)):
-					self.blocked_edges.add((x, y, x+self.myscale, y))
-					self.blocked_edges.add((x, y, x, y+self.myscale))
-					self.blocked_edges.add((x, y, x-self.myscale, y))
-					self.blocked_edges.add((x, y, x, y-self.myscale))
+				elif(flag == 1 and ((y+self.myscale) <= self.grid_dimension*self.myscale//2) and (((x, y, x+self.myscale, y) and (x, y, x, y+self.myscale) and (x-self.myscale, y, x, y) and (x, y-self.myscale, x, y)) not in self.blocked_edges)):
+					self.blocked_edges.add((x, y, x+self.myscale, y)) # V
+					self.blocked_edges.add((x, y, x, y+self.myscale)) # >
+					self.blocked_edges.add((x-self.myscale, y, x, y)) # ^
+					self.blocked_edges.add((x, y-self.myscale, x, y)) # <
 					# offset = np.random.uniform(0, 0.05*self.myscale)
 					offset = 0
 					coords.append((x, y+self.myscale*2-offset))
-					self.book_dict_generator(books, bookCounter, size, (x, y+self.myscale*2-offset), (x, y), (x, y+self.myscale),  subject_count)
+					self.book_dict_generator(books, bookCounter, size, (x, y), (x+self.myscale, y), (x-self.myscale, y), (x, y+self.myscale), (x, y-self.myscale), subject_count)
 					self.add_book(f_out, x, y+self.myscale*2-offset, book_size_scale, bookCounter)
 					count += 1
 				else:
