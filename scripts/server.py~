@@ -6,7 +6,7 @@ from mazeGenerator import *
 import sys
 import argparse
 import time
-from action_server import RobotActionsServer
+from action_server import RobotActionsServer 
 import pickle
 import copy
 import time
@@ -14,8 +14,7 @@ import json
 import os
 import numpy as np
 from gazebo_msgs.srv import SpawnModel
-from geometry_msgs.msg import Pose
-import pdb
+from geometry_msgs.msg import Pose 
 
 root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 books = None
@@ -29,27 +28,15 @@ parser.add_argument('-action_seed', help='for providing action selection random 
 robot_action_server = None
 
 
-def book_dict_generator(books, bookname,location, coord1, coord2, coord3, coord4):
+def book_dict_generator(books, bookname,location, coord1, cord2):
 		# print(bookCounter)
 		books[bookname]["size"] = "small"
 		# Total book count of a subject including small and large
 		books[bookname]["subject"] = "Cloud Computing"
 		books[bookname]["loc"]= location
 		books[bookname]["load_loc"] = []
-
-		if (coord1[0] > 0 and coord1[1] > 0):
-			books[bookname]["load_loc"].append(coord1)
-
-		if (coord2[0] > 0 and coord2[1] > 0):
-			books[bookname]["load_loc"].append(coord2)
-
-		if (coord3[0] > 0 and coord3[1] > 0):
-			books[bookname]["load_loc"].append(coord3)
-
-		if (coord4[0] > 0 and coord4[1] > 0):
-			books[bookname]["load_loc"].append(coord4)
-
-		books[bookname]["placed"] = False
+		books[bookname]["load_loc"].append(coord1)
+		books[bookname]["load_loc"].append(cord2)
 
 
 def check_is_edge(req):
@@ -118,17 +105,9 @@ def handle_get_successor(req):
     try:
         check_is_edge = rospy.ServiceProxy('check_is_edge',CheckEdge)
         if req.x <= x_cord and req.y <= y_cord:
-            result = check_is_edge(req.x, req.y, x_cord, y_cord) #((req.x, req.y, x_cord, y_cord), "changedValuesLater")
-            if result.value == 1:
-                isValidEdge = True
-            else:
-                isValidEdge = False
+            isValidEdge = check_is_edge((req.x, req.y, x_cord, y_cord), "changedValuesLater")
         else:
-            result = check_is_edge(x_cord, y_cord, req.x, req.y) #((x_cord, y_cord, req.x, req.y), "changedValuesBefore")
-            if result.value == 1:
-                isValidEdge = True
-            else:
-                isValidEdge = False
+            isValidEdge = check_is_edge((x_cord, y_cord, req.x, req.y), "changedValuesBefore")
             
     except rospy.ServiceException,e:
             print "Sevice call failed: %s"%e
@@ -160,7 +139,6 @@ def remove_blocked_edge(req):
 
 def spawn(req):
 	global robot_action_server
-	global mazeInfo
 	rospy.wait_for_service("gazebo/spawn_sdf_model")
 	rospy.wait_for_service("update_currentstate_objectdict")
 	initial_pose = Pose()
@@ -173,44 +151,35 @@ def spawn(req):
 	spawn_model_prox = rospy.ServiceProxy('gazebo/spawn_sdf_model', SpawnModel)
 	update_object_prox = rospy.ServiceProxy('update_currentstate_objectdict', UpdatedTuple)
 	while failure and ctr < 500:
-		x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-		y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-		#flag = np.random.randint(0, 2)
-		flag =0
-		#pdb.set_trace()
-		if(flag == 0 and ((x+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges) and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges) and (x-myscale, y, x, y) not in mazeInfo.blocked_edges) and ((x, y-myscale, x, y not in mazeInfo.blocked_edges)):
-			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
-			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
-			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
-			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
+		x = myscale*np.random.randint(0, (mazeInfo.grid_dimension+1)//2)
+		y = myscale*np.random.randint(0, (mazeInfo.grid_dimension+1))
+		flag = np.random.randint(0, 2)
+		if(flag == 0 and ((x+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)):
+			mazeInfo.blocked_edges.add((x, y, x+myscale, y))
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
-			books["books"][bookname] = {}
-			book_dict_generator(books["books"], bookname,(x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
+			books[bookname] = {}
+			book_dict_generator(books, bookname,(x+myscale/2, y), (x, y), (x+myscale, y))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
-			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
+			update_object_prox(json.dumps( [bookname, books[bookname]] ))
 			#robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
-			failure = False
 			return "Success"
-
-
-		elif(flag == 1 and ((y+myscale) <= mazeInfo.grid_dimension*myscale//2) and (((x, y, x+myscale, y) and (x, y, x, y+myscale) and (x-myscale, y, x, y) and (x, y-myscale, x, y)) not in mazeInfo.blocked_edges)):
-			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
-			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
-			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
-			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
+		
+				
+		elif(flag == 1 and ((y+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)):
+			mazeInfo.blocked_edges.add((x, y, x, y+myscale))
+			mazeInfo.blocked_edges.add((x, y, x+myscale, y))
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
-			books["books"][bookname] = {}
-			book_dict_generator(books["books"], bookname,(x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
+			books[bookname] = {}
+			book_dict_generator(books, bookname,(x, y+myscale/2), (x, y), (x, y+myscale))
 			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
 			#print "Book spawned Successfully"
-			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
+			update_object_prox(json.dumps( [bookname, books[bookname]] ))
 			#robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
-			failure = False
 			return "Success"
 
 		else:
@@ -218,8 +187,8 @@ def spawn(req):
 			ctr +=1
 
 	return "Failure"
-
-
+		
+		
 
 
 
@@ -238,8 +207,8 @@ if __name__ == "__main__":
 	n_subjects = args.n_subjects
 	n_books = args.n_books
 	seed = args.seed
-	#print "n_subjectes: ", n_subjects
-	#print "n_books:", n_books
+	print "n_subjectes: ", n_subjects
+	print "n_books:", n_books
 	if n_subjects > 20:
 		print('Maximum no. of subjects available is: 20')
 		exit()
@@ -252,10 +221,10 @@ if __name__ == "__main__":
 	mazeInfo = Maze(grid_size, 0.5)
 	books = mazeInfo.generate_blocked_edges(book_count_list, seed,  number_of_trollies, root_path)
 	mazeInfoCopy = copy.deepcopy(mazeInfo)
-	#print "blocked_edges: "
-	#for i in mazeInfo.blocked_edges:
-	    #print i
-	#print "books", books
+	print "blocked_edges: "
+	for i in mazeInfo.blocked_edges:
+	    print i
+	print "books", books
 	rospy.init_node('server')
 	robot_action_server = RobotActionsServer(books, root_path, args.action_seed)
 	server()

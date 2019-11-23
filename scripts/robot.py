@@ -21,6 +21,9 @@ from std_msgs.msg import String
 ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
 
 class Robot:
+
+    def __init__(self):
+        self.helper = problem.Helper()
     # --------------- HELPER FUNCTIONS --------------- #
 
     def is_goal_state(self, current_state, goal_state):
