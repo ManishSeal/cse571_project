@@ -37,27 +37,36 @@ parser.add_argument('-headless', help='1 to run in the headless mode, 0 to launc
 robot_action_server = None
 
 
-def book_dict_generator(books, bookname, location, coord1, coord2, coord3, coord4):
+
+def book_dict_generator(bookname,location, coord1, coord2, coord3, coord4):
+    global books
+    subjects = set()
+    for k, v in books['books'].items():
+        # print "v: ", v
+        # print "type(v): ", type(v)
+        if 'subject' in v:
+            subjects.add(v["subject"])
+        
     # print(bookCounter)
-    books[bookname]["size"] = "large"
+    books['books'][bookname]["size"] = np.random.choice(["small", "large"])
     # Total book count of a subject including small and large
-    books[bookname]["subject"] = "Operating Systems Architecture"
-    books[bookname]["loc"] = location
-    books[bookname]["load_loc"] = []
+    books['books'][bookname]["subject"] = np.random.choice(list(subjects))
+    books['books'][bookname]["loc"]= location
+    books['books'][bookname]["load_loc"] = []
 
     if (coord1[0] > 0 and coord1[1] > 0):
-        books[bookname]["load_loc"].append(coord1)
+        books['books'][bookname]["load_loc"].append(coord1)
 
     if (coord2[0] > 0 and coord2[1] > 0):
-        books[bookname]["load_loc"].append(coord2)
+        books['books'][bookname]["load_loc"].append(coord2)
 
     if (coord3[0] > 0 and coord3[1] > 0):
-        books[bookname]["load_loc"].append(coord3)
+        books['books'][bookname]["load_loc"].append(coord3)
 
     if (coord4[0] > 0 and coord4[1] > 0):
-        books[bookname]["load_loc"].append(coord4)
+        books['books'][bookname]["load_loc"].append(coord4)
 
-    books[bookname]["placed"] = False
+    books['books'][bookname]["placed"] = False
 
 
 def check_is_edge(req):
@@ -172,6 +181,60 @@ def remove_blocked_edge(req):
 def spawn(req):
     global robot_action_server
     global mazeInfo
+    global books
+    global book_number
+    rospy.wait_for_service("gazebo/spawn_sdf_model")
+    rospy.wait_for_service("update_currentstate_objectdict")
+    initial_pose = Pose()
+    if book_number < len(books['books']):
+        book_number = len(books['books'])
+    book_number = book_number + 1
+    print "new book number: ", book_number
+    bookname = "book_"+str(book_number)  # str(int(time.time()*100))
+    myscale = 0.5
+    failure = True
+    ctr = 0
+    f = open(root_path+"/helpers/models/book_1/model.sdf","r")
+    sdff = f.read()
+    spawn_model_prox = rospy.ServiceProxy('gazebo/spawn_sdf_model', SpawnModel)
+    update_object_prox = rospy.ServiceProxy('update_currentstate_objectdict', UpdatedTuple)
+    while failure and ctr < 500:
+        x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
+        y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
+        
+        if((x <= mazeInfo.grid_dimension*myscale//2)
+            and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)
+            and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)
+            and ((x-myscale, y, x, y) not in mazeInfo.blocked_edges)
+            and ((x, y-myscale, x, y) not in mazeInfo.blocked_edges)):
+
+            mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
+            mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
+            mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
+            mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
+
+            initial_pose.position.x = x
+            initial_pose.position.y = y
+            initial_pose.position.z = 0
+            books["books"][bookname] = {}
+            book_dict_generator(bookname, (x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
+            spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
+            #print "Book spawned Successfully"
+            update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
+            #robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
+            failure = False
+            return "Success"
+
+        else:
+            failure = True
+            ctr +=1
+
+    return "Failure"
+
+
+def spawn(req):
+    global robot_action_server
+    global mazeInfo
     global headless
     print "Headless: " ,headless, type(headless)
     isSimulation = not headless
@@ -251,7 +314,7 @@ if __name__ == "__main__":
     book_sizes = 2
     book_count_of_each_subject = n_books * book_sizes
     book_count_list = [n_books] * n_subjects * book_sizes
-
+    book_number = len(book_count_list)
     number_of_trollies = n_subjects * 2
     # grid_size = max((((book_count_of_each_subject * n_subjects) / 4) // 1 ) + 1, ((number_of_trollies/4)*7), 10)
     grid_size = 6 * n_subjects
@@ -267,3 +330,4 @@ if __name__ == "__main__":
     robot_action_server = RobotActionsServer(
         books, root_path, headless, args.action_seed)
     server()
+    
