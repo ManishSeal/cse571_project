@@ -171,32 +171,21 @@ class Maze:
 			else:
 				book_size_scale = 0.6
 
-
 			n_obstacles = book_count
 			count = 1
 			coords = []
-			print "gridSize: ", self.grid_dimension
+
 			while(count <= n_obstacles):
 				books["book_"+str(bookCounter)] = {}
 				x = np.random.randint(0, (self.grid_dimension+1)//2)
 				y = np.random.randint(0, (self.grid_dimension+1)//2)
-				#print "x: ", x
-				#print "y: ", y
-				#print "count: ", bookCounter
-				#print "**************"
-				#flag = np.random.randint(0, 2)
-				flag =0
 				x_ = x+self.myscale*2
 
-				if(flag == 0 and ((x+self.myscale) <= self.grid_dimension*self.myscale//2)
+				if(((x+self.myscale) <= self.grid_dimension*self.myscale//2)
 					and ((x_, y, x_+self.myscale, y) not in self.blocked_edges)
 					and ((x_, y, x_, y+self.myscale) not in self.blocked_edges)
 					and ((x_-self.myscale, y, x_, y) not in self.blocked_edges)
 					and ((x_, y-self.myscale, x_, y) not in self.blocked_edges)):
-
-					print "Book x_: ", x_
-					print "Book y: ", y
-					#import pdb; pdb.set_trace()
 
 					self.blocked_edges.add((x_, y, x_+self.myscale, y)) # V
 					self.blocked_edges.add((x_, y, x_, y+self.myscale)) # >
@@ -209,17 +198,6 @@ class Maze:
 					self.add_book(f_out, x+self.myscale*2, y, book_size_scale, bookCounter)
 					count += 1
 
-				elif(flag == 1 and ((y+self.myscale) <= self.grid_dimension*self.myscale//2) and (((x, y, x+self.myscale, y) and (x, y, x, y+self.myscale) and (x-self.myscale, y, x, y) and (x, y-self.myscale, x, y)) not in self.blocked_edges)):
-					self.blocked_edges.add((x, y, x+self.myscale, y)) # V
-					self.blocked_edges.add((x, y, x, y+self.myscale)) # >
-					self.blocked_edges.add((x-self.myscale, y, x, y)) # ^
-					self.blocked_edges.add((x, y-self.myscale, x, y)) # <
-					# offset = np.random.uniform(0, 0.05*self.myscale)
-					offset = 0
-					coords.append((x, y+self.myscale*2-offset))
-					self.book_dict_generator(books, bookCounter, size, (x, y), (x+self.myscale, y), (x-self.myscale, y), (x, y+self.myscale), (x, y-self.myscale), subject_count)
-					self.add_book(f_out, x, y+self.myscale*2-offset, book_size_scale, bookCounter)
-					count += 1
 				else:
 					bookCounter -= 1
 				bookCounter += 1

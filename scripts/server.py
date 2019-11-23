@@ -175,32 +175,18 @@ def spawn(req):
 	while failure and ctr < 500:
 		x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
 		y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-		#flag = np.random.randint(0, 2)
-		flag =0
-		#pdb.set_trace()
-		if(flag == 0 and ((x+myscale) <= mazeInfo.grid_dimension*myscale//2) and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges) and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges) and (x-myscale, y, x, y) not in mazeInfo.blocked_edges) and ((x, y-myscale, x, y not in mazeInfo.blocked_edges)):
+
+		if((x <= mazeInfo.grid_dimension*myscale//2)
+			and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)
+			and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)
+			and ((x-myscale, y, x, y) not in mazeInfo.blocked_edges)
+			and ((x, y-myscale, x, y) not in mazeInfo.blocked_edges)):
+
 			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
 			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
 			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
 			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
-			initial_pose.position.x = x
-			initial_pose.position.y = y
-			initial_pose.position.z = 0
-			books["books"][bookname] = {}
-			book_dict_generator(books["books"], bookname,(x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
-			spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
-			#print "Book spawned Successfully"
-			update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
-			#robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
-			failure = False
-			return "Success"
 
-
-		elif(flag == 1 and ((y+myscale) <= mazeInfo.grid_dimension*myscale//2) and (((x, y, x+myscale, y) and (x, y, x, y+myscale) and (x-myscale, y, x, y) and (x, y-myscale, x, y)) not in mazeInfo.blocked_edges)):
-			mazeInfo.blocked_edges.add((x, y, x+myscale, y)) # V
-			mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
-			mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
-			mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
 			initial_pose.position.x = x
 			initial_pose.position.y = y
 			initial_pose.position.z = 0
