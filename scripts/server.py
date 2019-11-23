@@ -109,9 +109,17 @@ def handle_get_successor(req):
     try:
         check_is_edge = rospy.ServiceProxy('check_is_edge',CheckEdge)
         if req.x <= x_cord and req.y <= y_cord:
-            isValidEdge = check_is_edge(req.x, req.y, x_cord, y_cord) #((req.x, req.y, x_cord, y_cord), "changedValuesLater")
+            result = check_is_edge(req.x, req.y, x_cord, y_cord) #((req.x, req.y, x_cord, y_cord), "changedValuesLater")
+            if result.value == 1:
+                isValidEdge = True
+            else:
+                isValidEdge = False
         else:
-            isValidEdge = check_is_edge(x_cord, y_cord, req.x, req.y) #((x_cord, y_cord, req.x, req.y), "changedValuesBefore")
+            result = check_is_edge(x_cord, y_cord, req.x, req.y) #((x_cord, y_cord, req.x, req.y), "changedValuesBefore")
+            if result.value == 1:
+                isValidEdge = True
+            else:
+                isValidEdge = False
             
     except rospy.ServiceException,e:
             print "Sevice call failed: %s"%e

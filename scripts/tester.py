@@ -85,6 +85,11 @@ priority_queue = []
 
 for i in bin_subject_name_dict:
     print i
+    
+# get robot_current_loc
+current_state = helper.get_current_state()
+robot_state = current_state['robot']
+robot_loc = (robot_state['x'], robot_state['y'])
 
 for book in unplaced_books:
     print book
@@ -102,22 +107,25 @@ for book in unplaced_books:
     if open_trolly_load_loc == (-1, -1):
         continue
     print open_trolly_load_loc
-    distance = get_manhattan_distance(open_book_load_loc, open_trolly_load_loc)
+    distance_book_trolly = get_manhattan_distance(open_book_load_loc, open_trolly_load_loc)
+    distance_robot_book = get_manhattan_distance(open_book_load_loc, robot_loc)
     age = age_dict[book]
-    heapq.heappush(priority_queue, (distance, book, trolly))
+    total_distance = distance_book_trolly + distance_robot_book
+    print "total_distance: ",total_distance
+    heapq.heappush(priority_queue, (total_distance - age, book, trolly))
     
     
-
-if len(priority_queue) > 0:
+while len(priority_queue) > 0:
     _, book, trolly = heapq.heappop(priority_queue)
     print "book: ", book, "trolly: ", trolly
+    if book in unplaced_books:
+        break
 else:
     print("not found")
     
     
 robot = Robot()
-# get robot_current_loc
-current_state = helper.get_current_state()
+
 
 print "current_state_robot: ", current_state['robot']
 #success, next_state = helper.execute_action("moveF", {})
