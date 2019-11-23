@@ -2,3 +2,5 @@
 *.pyc
 *.pyc~
 *~
+*books.json
+*maze.sdf
