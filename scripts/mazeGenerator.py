@@ -5,6 +5,7 @@ import random
 import pprint
 import json
 import copy
+import pdb
 
 class Maze:
 
@@ -118,10 +119,19 @@ class Maze:
 		books["book_"+str(bookCounter)]["subject"] = self.subject_list[book_index]
 		books["book_"+str(bookCounter)]["loc"]= location
 		books["book_"+str(bookCounter)]["load_loc"] = []
-		books["book_"+str(bookCounter)]["load_loc"].append(coord1)
-		books["book_"+str(bookCounter)]["load_loc"].append(coord2)
-		books["book_"+str(bookCounter)]["load_loc"].append(coord3)
-		books["book_"+str(bookCounter)]["load_loc"].append(coord4)
+
+		if (coord1[0] > 0 and coord1[1] > 0):
+			books["book_"+str(bookCounter)]["load_loc"].append(coord1)
+
+		if (coord2[0] > 0 and coord2[1] > 0):
+			books["book_"+str(bookCounter)]["load_loc"].append(coord2)
+
+		if (coord3[0] > 0 and coord3[1] > 0):
+			books["book_"+str(bookCounter)]["load_loc"].append(coord3)
+
+		if (coord4[0] > 0 and coord4[1] > 0):
+			books["book_"+str(bookCounter)]["load_loc"].append(coord4)
+
 
 	def trolly_dict_generator(self,books, trollies_counter, size, access_loc_list, location, subject_count_index):
 		books["trolly_"+str(trollies_counter)]["size"] = size

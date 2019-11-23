@@ -36,10 +36,19 @@ def book_dict_generator(books, bookname,location, coord1, coord2, coord3, coord4
 		books[bookname]["subject"] = "Cloud Computing"
 		books[bookname]["loc"]= location
 		books[bookname]["load_loc"] = []
-		books[bookname]["load_loc"].append(coord1)
-		books[bookname]["load_loc"].append(coord2)
-		books[bookname]["load_loc"].append(coord3)
-		books[bookname]["load_loc"].append(coord4)
+
+		if (coord1[0] > 0 and coord1[1] > 0):
+			books[bookname]["load_loc"].append(coord1)
+
+		if (coord2[0] > 0 and coord2[1] > 0):
+			books[bookname]["load_loc"].append(coord2)
+
+		if (coord3[0] > 0 and coord3[1] > 0):
+			books[bookname]["load_loc"].append(coord3)
+
+		if (coord4[0] > 0 and coord4[1] > 0):
+			books[bookname]["load_loc"].append(coord4)
+
 		books[bookname]["placed"] = False
 
 
