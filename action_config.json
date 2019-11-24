@@ -5,8 +5,8 @@
         "success_reward": 25,
         "fail_reward": -25,
         "possibilities": {
-            "pick": 0.85,
-            "noaction": 0.15
+            "pick": 1,
+            "noaction": 0
         }
     },
     "place": { 
@@ -15,8 +15,8 @@
         "success_reward": 500,
         "fail_reward": -25,
         "possibilities": {
-            "place": 0.85,
-            "noaction": 0.15
+            "place": 1,
+            "noaction": 0
         }
     },
     "moveF": { 
@@ -25,8 +25,18 @@
         "success_reward": -10,
         "fail_reward": -20,
         "possibilities": {
-            "moveF": 0.85,
-            "noaction": 0.15
+            "moveF": 1,
+            "noaction": 0
+        }
+    },
+    "moveB": { 
+        "function": "execute_moveB",
+        "params": [],
+        "success_reward": -10,
+        "fail_reward": -20,
+        "possibilities": {
+            "moveB": 1,
+            "noaction": 0
         }
     },
     "TurnCW": { 
@@ -35,8 +45,8 @@
         "success_reward": -10,
         "fail_reward": -20,
         "possibilities": {
-            "TurnCW": 0.85,
-            "noaction": 0.15
+            "TurnCW": 1,
+            "noaction": 0
         }
     },
     "TurnCCW": { 
@@ -45,8 +55,8 @@
         "success_reward": -10,
         "fail_reward": -20,
         "possibilities": {
-            "TurnCCW": 0.85,
-            "noaction": 0.15
+            "TurnCCW": 1,
+            "noaction": 0
         }
     },
     "noaction": {
