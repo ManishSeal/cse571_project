@@ -64,10 +64,10 @@ class Maze:
 	def add_book_description(self,f_out, coords, color, bookCounter):
 		for z, i in enumerate(coords):
 			x, y = i
-			f_out.write("<model name='book_{0}'>/n".format(bookCounter+1))
-			f_out.write("<link name='cover'>/n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>/n<self_collide>0</self_collide>/n<kinematic>0</kinematic>/n")
-			f_out.write("<gravity>1</gravity>/n<visual name='visual'>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<material>/n<script>/n")
-			f_out.write("<uri>model://book_1/materials/scripts/book_{0}.material</uri>/n<uri>model://book_1/materials/textures/cover{0}.jpg</uri>/n<name>book_{0}</name>/n</script>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu><mu2>1000</mu2></ode>/n</friction>/n</surface>/n</collision>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n</link>/n<link name='page'>/n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>/n<visual name='visual'>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.24502 0.15862 0.028</size>/n</box>/n</geometry>/n<material>/n<lighting>1</lighting>/n<ambient>1 1 1 1</ambient>/n<diffuse>1 1 1 1</diffuse>/n<specular>0.01 0.01 0.01 1</specular>/n<emissive>0 0 0 1</emissive>/n<shader type='vertex'>/n<normal_map>__default__</normal_map>/n</shader>/n</material>/n<cast_shadows>1</cast_shadows>/n<transparency>0</transparency>/n</visual>/n<collision name='collision'>/n<laser_retro>0</laser_retro>/n<max_contacts>10</max_contacts>/n<pose frame=''>0 0 0 0 -0 0</pose>/n<geometry>/n<box>/n<size>0.245 0.16 0.03</size>/n</box>/n</geometry>/n<surface>/n<contact>/n<ode/>/n</contact>/n<bounce/>/n<friction>/n<ode><mu>1000</mu>/n<mu2>1000</mu2>/n</ode>/n</friction>/n</surface>/n</collision>/n<self_collide>0</self_collide>/n<inertial>/n<inertia>/n<ixx>0.00058</ixx>/n<ixy>0</ixy>/n<ixz>0</ixz>/n<iyy>0.00058</iyy>/n<iyz>0</iyz>/n<izz>0.00019</izz>/n</inertia>/n<mass>0.05</mass>/n</inertial>/n<kinematic>0</kinematic>/n<gravity>1</gravity>/n</link>/n<static>0</static>/n<allow_auto_disable>1</allow_auto_disable>/n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>/n</model>".format(color, x, y))
+			f_out.write("<model name='book_{0}'>\n".format(bookCounter+1))
+			f_out.write("<link name='cover'>\n<pose frame=''>0 -0.000108 0.015405 0 -0 0</pose>\n<self_collide>0</self_collide>\n<kinematic>0</kinematic>\n")
+			f_out.write("<gravity>1</gravity>\n<visual name='visual'>\n<geometry>\n<box>\n<size>0.245 0.16 0.03</size>\n</box>\n</geometry>\n<material>\n<script>\n")
+			f_out.write("<uri>model://book_1/materials/scripts/book_{0}.material</uri>\n<uri>model://book_1/materials/textures/cover{0}.jpg</uri>\n<name>book_{0}</name>\n</script>\n</material>\n<cast_shadows>1</cast_shadows>\n<transparency>0</transparency>\n</visual>\n<collision name='collision'>\n<laser_retro>0</laser_retro>\n<max_contacts>10</max_contacts>\n<geometry>\n<box>\n<size>0.245 0.16 0.03</size>\n</box>\n</geometry>\n<surface>\n<contact>\n<ode/>\n</contact>\n<bounce/>\n<friction>\n<ode><mu>1000</mu><mu2>1000</mu2></ode>\n</friction>\n</surface>\n</collision>\n<inertial>\n<inertia>\n<ixx>0.00058</ixx>\n<ixy>0</ixy>\n<ixz>0</ixz>\n<iyy>0.00058</iyy>\n<iyz>0</iyz>\n<izz>0.00019</izz>\n</inertia>\n<mass>0.05</mass>\n</inertial>\n</link>\n<link name='page'>\n<pose frame=''>0 0.000608 0.015405 0 -0 0</pose>\n<visual name='visual'>\n<pose frame=''>0 0 0 0 -0 0</pose>\n<geometry>\n<box>\n<size>0.24502 0.15862 0.028</size>\n</box>\n</geometry>\n<material>\n<lighting>1</lighting>\n<ambient>1 1 1 1</ambient>\n<diffuse>1 1 1 1</diffuse>\n<specular>0.01 0.01 0.01 1</specular>\n<emissive>0 0 0 1</emissive>\n<shader type='vertex'>\n<normal_map>__default__</normal_map>\n</shader>\n</material>\n<cast_shadows>1</cast_shadows>\n<transparency>0</transparency>\n</visual>\n<collision name='collision'>\n<laser_retro>0</laser_retro>\n<max_contacts>10</max_contacts>\n<pose frame=''>0 0 0 0 -0 0</pose>\n<geometry>\n<box>\n<size>0.245 0.16 0.03</size>\n</box>\n</geometry>\n<surface>\n<contact>\n<ode/>\n</contact>\n<bounce/>\n<friction>\n<ode><mu>1000</mu>\n<mu2>1000</mu2>\n</ode>\n</friction>\n</surface>\n</collision>\n<self_collide>0</self_collide>\n<inertial>\n<inertia>\n<ixx>0.00058</ixx>\n<ixy>0</ixy>\n<ixz>0</ixz>\n<iyy>0.00058</iyy>\n<iyz>0</iyz>\n<izz>0.00019</izz>\n</inertia>\n<mass>0.05</mass>\n</inertial>\n<kinematic>0</kinematic>\n<gravity>1</gravity>\n</link>\n<static>0</static>\n<allow_auto_disable>1</allow_auto_disable>\n<pose frame=''>0.830691 0.858956 0 0 -0 0</pose>\n</model>".format(color, x, y))
 			bookCounter += 1
 		f_out.write('<gui fullscreen=\'0\'>\n<camera name=\'user_camera\'>\n<pose frame=\'\'>5 -5 2 0 0.275643 2.35619</pose>\n<view_controller>orbit</view_controller>\n<projection_type>perspective</projection_type>\n</camera>\n</gui>\n')
 
@@ -91,7 +91,7 @@ class Maze:
 				subject_count += 1
 			else:
 				scale = 0.3
-			f_out.write("<model name='trolly_{0}\'>/n".format(z+1))
+			f_out.write("<model name='trolly_{0}\'>\n".format(z+1))
 			f_out.write("<link name='link'>\n<pose frame=''>0 0 0 0 -0 0</pose>\n<inertial>\n<mass>1</mass>\n")
 			f_out.write("<pose frame=''>0 0 0 0 -0 0</pose>\n<inertia>\n<ixx>1</ixx>\n<ixy>0</ixy>\n<ixz>0</ixz>\n<iyy>1</iyy>\n<iyz>0</iyz>\n<izz>1</izz>\n</inertia>\n</inertial>\n")
 			f_out.write("<self_collide>0</self_collide>\n<kinematic>0</kinematic>\n<gravity>1</gravity>\n<visual name='visual'>\n<geometry>\n")
@@ -279,6 +279,7 @@ class Maze:
 
 		object_dict["books"] = books
 		object_dict["bins"] = trollies
+		object_dict["basket"] = "empty"
 	 	with open(root_path + '/books.json', 'w') as fp:
 	 		json.dump(object_dict, fp)
 

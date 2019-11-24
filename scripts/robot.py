@@ -77,6 +77,7 @@ class Robot:
                 * **goal_reached**: True/False indicating if one of the goal_locations was reached
         
         """
+        print "Getting the path"
         final_state = None
         goal_states = self.build_goal_states(goal_locations)
         goal_reached = False

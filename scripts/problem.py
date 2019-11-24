@@ -202,7 +202,7 @@ class Helper:
 
     
     def get_actions(self):
-        return ["TurnCW","TurnCCW","moveF", "moveB"]
+        return ["TurnCW","TurnCCW","moveF"]
 
     def execute_action(self, action, action_params):
         """

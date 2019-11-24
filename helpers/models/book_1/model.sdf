@@ -9,7 +9,7 @@
       <visual name='visual'>
         <geometry>
           <box>
-            <size>0.245 0.16 0.03</size>
+            <size>0.147 0.096 0.03</size>
           </box>
         </geometry>
         <!--material>
@@ -37,7 +37,7 @@
         <max_contacts>10</max_contacts>
           <geometry>
           <box>
-            <size>0.245 0.16 0.03</size>
+            <size>0.147 0.096 0.03</size>
           </box>
         </geometry>
        </collision>
@@ -48,7 +48,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.24502 0.15862 0.028</size>
+            <size>0.146 0.0959 0.028</size>
           </box>
         </geometry>
         <material>
@@ -70,7 +70,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.245 0.16 0.03</size>
+            <size>0.146 0.0959 0.028</size>
           </box>
         </geometry>
       </collision>
