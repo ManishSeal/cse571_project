@@ -1,3 +1,10 @@
+## TODO
+1. Change project name
+2. Change spawn delay
+3. Manish's changes
+4. Rename the tester file
+5. Avoid spawning at (0,0)
+
 ## Running the Demo
 
 To start the demo, run the following commands in order:
