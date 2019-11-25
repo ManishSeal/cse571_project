@@ -14,11 +14,11 @@ def spawner():
     rospy.init_node("spawnner",anonymous=True)
     try:
         while(True):
+            print "Sleep for 150 secs..."
+            rospy.sleep(150)
             print "Spawnning..."
             spawn = rospy.ServiceProxy('spawn_book', SpawnMsg)
             spawn()
-            print "returned to book_spawnner.py"
-            rospy.Rate(1/2.0).sleep()
     except rospy.ServiceException,e:
         print "Spawnning failed",e
 

@@ -124,7 +124,7 @@ def get_next_bookandtrolly():
     while len(priority_queue) > 0:
         _, book, trolly = heapq.heappop(priority_queue)
         print "book: ", book, "trolly: ", trolly
-        if book in unplaced_books:  # and len(book)>len("book_8"):
+        if book in unplaced_books:# and len(book)>len("book_8"):
             return book, trolly
         elif(len(priority_queue) == 0):
             print("All books are placed in this instance")

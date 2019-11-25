@@ -23,7 +23,7 @@ class moveTbot3:
 		self.pose_subscriber = rospy.Subscriber('/odom',Odometry,self.pose_callback)
 		self.status_publisher = rospy.Publisher("/status",String,queue_size = 10)
 		self.free = String(data = "Idle")
-		self.rate = rospy.Rate(30)
+		self.rate = rospy.Rate(1)
 		print "Ready!"
 		rospy.spin()
 

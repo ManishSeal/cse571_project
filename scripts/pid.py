@@ -46,9 +46,9 @@ class PID(object):
 
 		self.last_time = None
 
-		rospy.Subscriber('/odom', Odometry, self.pose_callback, queue_size=1)
-		self.velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
-		self.controller_status_publisher = rospy.Publisher('/Controller_Status', String, queue_size=1)
+		rospy.Subscriber('/odom', Odometry, self.pose_callback, queue_size=10)
+		self.velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+		self.controller_status_publisher = rospy.Publisher('/Controller_Status', String, queue_size=10)
 
 	def set_current_pose(self, current_pose):
 		if self.init_val_flag == 0:
