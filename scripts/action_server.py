@@ -63,9 +63,9 @@ class RobotActionsServer:
             'y': float(self.object_dict["books"][book_name]["loc"][1]),
             'placed': False
         }
-        print "updated"
-        print "updated dict= ", self.object_dict
-        print "current_state= ", self.current_state
+        print "Object dict and current state updated after book spawned"
+        print "updated dict = ", self.object_dict
+        print "current_state = ", self.current_state
 
         return "success"
 
@@ -223,7 +223,6 @@ class RobotActionsServer:
         action = req.action_name
         params = json.loads(req.action_params)
 
-        print("inside execute action inside action_server")
         # No operations in terminal state
         # if self.is_terminal_state(self.current_state):
         # return -1, json.dumps(self.current_state)
@@ -259,7 +258,6 @@ class RobotActionsServer:
             self.current_state[state_vars] = next_state[state_vars]
 
 
-        print "current State: ", self.current_state
         return success, json.dumps(next_state)
 
     def execute_place(self, book_name, bin_name, current_state, simulation=False):
@@ -288,7 +286,6 @@ class RobotActionsServer:
                         goal_loc[0] = goal_loc[0] + 0.3
                         goal_loc[1] = goal_loc[1] + 0.3
                         self.change_gazebo_state(book_name, goal_loc + [3])
-                        print "Simulation state changed....."
                         rospy.Rate(1).sleep()
 
                     self.status_publisher.publish(self.status)
@@ -302,7 +299,7 @@ class RobotActionsServer:
                     self.object_dict['books'][book_name]['y'] = -1
                     self.object_dict['books'][book_name]['placed'] = True
                     self.object_dict['basket'] = 'empty'
-                    print "State Updated and Returned"
+                    # print "State Updated and Returned"
                     return self.success, next_state
 
         self.status_publisher.publish(self.status)
@@ -314,15 +311,12 @@ class RobotActionsServer:
         next_state = copy.deepcopy(current_state)
 
         # Valid book and book isn't already placed
-        print "valid book :", book_name in self.object_dict["books"], current_state[book_name]['placed']
         if book_name in self.object_dict["books"] and not current_state[book_name]['placed']:
             # Robot is at the load location for the book
-            print "Robot Loc:", (robot_state[0], robot_state[1]) , "book Load locs:", self.object_dict["books"][book_name]["load_loc"]
             if ((robot_state[0], robot_state[1]) in self.object_dict["books"][book_name]["load_loc"]) or ([robot_state[0], robot_state[1]] in self.object_dict["books"][book_name]["load_loc"] ):
                 # Basket is empty
                 print "Robot at pick location"
                 if current_state['basket'] == 'empty':
-                    print "current state has empty basket"
                     # Update gazebo environment if needed
                     if simulation:
                         self.change_gazebo_state(
@@ -340,7 +334,7 @@ class RobotActionsServer:
                     self.object_dict['basket'] = book_name
                     self.object_dict['books'][book_name]['x'] = -1
                     self.object_dict['books'][book_name]['y'] = -1
-                    print "Current State updated and returned"
+                    # print "Current State updated and returned"
                     return self.success, next_state
 
         self.status_publisher.publish(self.status)
@@ -353,7 +347,6 @@ class RobotActionsServer:
         x1 = robot_state[0]
         y1 = robot_state[1]
 
-        print "inside execute_moveF", "simulation: ", simulation
         # Get new location
         if "EAST" in robot_state[2]:
             x2 = x1 + 0.5

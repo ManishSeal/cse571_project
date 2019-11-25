@@ -13,6 +13,7 @@ def spawner():
     rospy.wait_for_service('spawn_book')
     rospy.init_node("spawnner",anonymous=True)
     try:
+        print "Press Ctrl+c to quit"
         while(True):
             print "Sleep for 150 secs..."
             rospy.sleep(150)

@@ -208,7 +208,11 @@ def spawn(req):
     while failure and ctr < 500:
         x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
         y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-        
+
+        #Preventing the book spawning on robot in zero state
+        if(x==0 and y == 0):
+            ctr+=1
+            continue
         if((x <= mazeInfo.grid_dimension*myscale//2)
             and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)
             and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)
