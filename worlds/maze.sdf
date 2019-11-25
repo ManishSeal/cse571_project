@@ -154,31 +154,31 @@
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_2'>
-<pose frame=''>1.0 2 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 1 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.35 0.35 1</scale>
 <link name='cover'>
-<pose frame=''>1.0 1.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 0.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>1.0 2.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>3.0 1.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_3'>
-<pose frame=''>1.0 4 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 3 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.6 0.6 1</scale>
 <link name='cover'>
-<pose frame=''>1.0 3.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 2.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>1.0 4.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>3.0 3.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -199,61 +199,61 @@
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_5'>
-<pose frame=''>3.0 5 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 4 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.35 0.35 1</scale>
 <link name='cover'>
-<pose frame=''>3.0 4.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>3.0 3.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>3.0 5.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>3.0 4.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_6'>
-<pose frame=''>2.0 1 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>2.0 4 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.35 0.35 1</scale>
 <link name='cover'>
-<pose frame=''>2.0 0.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>2.0 3.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>2.0 1.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>2.0 4.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_7'>
-<pose frame=''>3.0 3 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 0 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.6 0.6 1</scale>
 <link name='cover'>
-<pose frame=''>3.0 2.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 -0.000108 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>3.0 3.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 0.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>
 </link>
 </model><model name='book_8'>
-<pose frame=''>3.0 2 -0.000405 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 3 -0.000405 -1e-06 1e-06 0</pose>
 <scale>0.6 0.6 1</scale>
 <link name='cover'>
-<pose frame=''>3.0 1.999892 0.015 -1e-06 1e-06 0</pose>
+<pose frame=''>1.0 2.999892 0.015 -1e-06 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0.017626 0.011511 -0.205341 -0.7674 1.17508 -0</acceleration>
 <wrench>0.017626 0.011511 -0.205341 0 -0 0</wrench>
 </link>
 <link name='page'>
-<pose frame=''>3.0 2.000608 0.015 0 1e-06 0</pose>
+<pose frame=''>1.0 3.000608 0.015 0 1e-06 0</pose>
 <velocity>0 0 0 0 -0 0</velocity>
 <acceleration>0 0 -9.8 0 -0 0</acceleration>
 <wrench>0 0 -9.8 0 -0 0</wrench>

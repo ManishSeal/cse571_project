@@ -17,6 +17,7 @@ def spawner():
             print "Spawnning..."
             spawn = rospy.ServiceProxy('spawn_book', SpawnMsg)
             spawn()
+            print "returned to book_spawnner.py"
             rospy.Rate(1/2.0).sleep()
     except rospy.ServiceException,e:
         print "Spawnning failed",e

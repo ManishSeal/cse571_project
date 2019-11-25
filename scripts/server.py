@@ -183,9 +183,18 @@ def spawn(req):
     global mazeInfo
     global books
     global book_number
-    rospy.wait_for_service("gazebo/spawn_sdf_model")
+    global headless
+    print "Headless: " ,headless, type(headless)
+    isSimulation = not headless
+    if(isSimulation):
+        rospy.wait_for_service("gazebo/spawn_sdf_model")
+        f = open(root_path+"/helpers/models/book_1/model2.sdf", "r")
+        sdff = f.read()
+        initial_pose = Pose()
+        spawn_model_prox = rospy.ServiceProxy(
+            'gazebo/spawn_sdf_model', SpawnModel)
+            
     rospy.wait_for_service("update_currentstate_objectdict")
-    initial_pose = Pose()
     if book_number < len(books['books']):
         book_number = len(books['books'])
     book_number = book_number + 1
@@ -194,9 +203,7 @@ def spawn(req):
     myscale = 0.5
     failure = True
     ctr = 0
-    f = open(root_path+"/helpers/models/book_1/model.sdf","r")
-    sdff = f.read()
-    spawn_model_prox = rospy.ServiceProxy('gazebo/spawn_sdf_model', SpawnModel)
+    
     update_object_prox = rospy.ServiceProxy('update_currentstate_objectdict', UpdatedTuple)
     while failure and ctr < 500:
         x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
@@ -212,13 +219,14 @@ def spawn(req):
             mazeInfo.blocked_edges.add((x, y, x, y+myscale)) # >
             mazeInfo.blocked_edges.add((x-myscale, y, x, y)) # ^
             mazeInfo.blocked_edges.add((x, y-myscale, x, y)) # <
-
-            initial_pose.position.x = x
-            initial_pose.position.y = y
-            initial_pose.position.z = 0
+            if(isSimulation):
+                initial_pose.position.x = x
+                initial_pose.position.y = y
+                initial_pose.position.z = 0
+                spawn_model_prox(bookname, sdff, bookname, initial_pose, "world")
+            
             books["books"][bookname] = {}
             book_dict_generator(bookname, (x, y), (x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
-            spawn_model_prox(bookname,sdff,bookname,initial_pose,"world")
             #print "Book spawned Successfully"
             update_object_prox(json.dumps( [bookname, books["books"][bookname]] ))
             #robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
@@ -232,61 +240,7 @@ def spawn(req):
     return "Failure"
 
 
-def spawn(req):
-    global robot_action_server
-    global mazeInfo
-    global headless
-    print "Headless: " ,headless, type(headless)
-    isSimulation = not headless
-    if(isSimulation):
-        rospy.wait_for_service("gazebo/spawn_sdf_model")
-        f = open(root_path+"/helpers/models/book_1/model2.sdf", "r")
-        sdff = f.read()
-        initial_pose = Pose()
-        spawn_model_prox = rospy.ServiceProxy(
-            'gazebo/spawn_sdf_model', SpawnModel)
 
-    rospy.wait_for_service("update_currentstate_objectdict")
-    bookname = "book_"+str(int(time.time()*100))
-    myscale = 0.5
-    failure = True
-    ctr = 0
-
-    update_object_prox = rospy.ServiceProxy(
-        'update_currentstate_objectdict', UpdatedTuple)
-    while failure and ctr < 500:
-        x = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-        y = np.random.randint(0, (mazeInfo.grid_dimension+2)//2)
-        # flag = np.random.randint(0, 2)
-        # pdb.set_trace()
-        if((x <= mazeInfo.grid_dimension*myscale//2)
-            and ((x, y, x+myscale, y) not in mazeInfo.blocked_edges)
-            and ((x, y, x, y+myscale) not in mazeInfo.blocked_edges)
-            and ((x-myscale, y, x, y) not in mazeInfo.blocked_edges)
-            and ((x, y-myscale, x, y) not in mazeInfo.blocked_edges)):
-            mazeInfo.blocked_edges.add((x, y, x+myscale, y))  # V
-            mazeInfo.blocked_edges.add((x, y, x, y+myscale))  # >
-            mazeInfo.blocked_edges.add((x-myscale, y, x, y))  # ^
-            mazeInfo.blocked_edges.add((x, y-myscale, x, y))  # <
-            if(isSimulation):
-                initial_pose.position.x = x
-                initial_pose.position.y = y
-                initial_pose.position.z = 0
-                spawn_model_prox(bookname, sdff, bookname, initial_pose, "world")
-            books["books"][bookname] = {}
-            book_dict_generator(books["books"], bookname, (x, y), (
-                x+myscale, y), (x-myscale, y), (x, y+myscale), (x, y-myscale))
-            # print "Book spawned Successfully"
-            update_object_prox(json.dumps(
-                [bookname, books["books"][bookname]]))
-            # robot_action_server.update_currentstate_objectdict((bookname,books[bookname]))
-            failure = False
-            return "Success"
-        else:
-            failure = True
-            ctr += 1
-
-    return "Failure"
 
 
 def server():
