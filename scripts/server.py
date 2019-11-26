@@ -264,6 +264,10 @@ if __name__ == "__main__":
     n_books = args.n_books
     seed = args.seed
     headless = args.headless == 1
+    if(headless):
+        print "Running in headless mode"
+    else:
+        print "Running in Graphical Interface mode. Launch Gazebo to visualize"
     # print "n_subjectes: ", n_subjects
     # print "n_books:", n_books
     if n_subjects > 20:
